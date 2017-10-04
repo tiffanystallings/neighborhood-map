@@ -7,6 +7,7 @@ var Place = function(data) {
 	this.marker = new google.maps.Marker({
 		position: self.position,
 		title: self.title,
+		map: map,
 		animation: google.maps.Animation.DROP
 	});
 }
@@ -14,8 +15,8 @@ var Place = function(data) {
 var ViewModel = function() {
 	var self = this;
 	this.places = [];
-
 	this.filteredMarkers = ko.observableArray([]);
+
 	this.largeInfowindow = new google.maps.InfoWindow();
 
 	locations.forEach(function(place) {
@@ -24,9 +25,13 @@ var ViewModel = function() {
 			self.selectMarker(this);
 		});
 		self.places.push(newPlace);
+		self.filteredMarkers.push(newPlace);
 	});
 
 	this.selectMarker = function(clicked) {
+		if (clicked.marker) {
+			clicked = clicked.marker;
+		}
 		for (var i = 0; i < self.places.length; i++) {
     			self.places[i].marker.setAnimation(null);
 			}
@@ -48,10 +53,10 @@ var ViewModel = function() {
 	}
 
 	this.hideAllLocations = function() {
-		var markers = self.filteredMarkers.removeAll();
-		for (var i=0; i<markers.length; i++) {
-			markers[i].setMap(null);
-		}
+		var removedPlaces = self.filteredMarkers.removeAll();
+		removedPlaces.forEach(function(place) {
+			place.marker.setMap(null);
+		})
 	}
 
 	this.populateInfoWindow = function (marker, infowindow) {
