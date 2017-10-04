@@ -16,13 +16,18 @@ var ViewModel = function() {
 		this.markers.push(marker);
 
 		marker.addListener('click', function() {
-			for (var i = 0; i < self.markers.length; i++) {
-    			self.markers[i].setAnimation(null);
-			}
-			self.populateInfoWindow(this, self.largeInfowindow);
-			this.setAnimation(google.maps.Animation.BOUNCE);
+			self.selectMarker(this);
 		});
 	};
+
+	this.selectMarker = function(marker) {
+		for (var i = 0; i < self.markers.length; i++) {
+    			self.markers[i].setAnimation(null);
+			}
+		map.setCenter(marker.position);
+		self.populateInfoWindow(marker, self.largeInfowindow);
+		marker.setAnimation(google.maps.Animation.BOUNCE);
+	}
 
 	this.showAllLocations = function() {
 		var bounds = new google.maps.LatLngBounds();
