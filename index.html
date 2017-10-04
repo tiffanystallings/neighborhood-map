@@ -39,10 +39,8 @@
 					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Filter Locations
 					</button>
-					<div class="dropdown-menu" aria-labelledby="dropdownMenu">
-						<button class="dropdown-item" type="button">Action</button>
-						<button class="dropdown-item" type="button">Another action</button>
-						<button class="dropdown-item" type="button">Something else here</button>
+					<div class="dropdown-menu" data-bind="foreach: tags" aria-labelledby="dropdownMenu">
+						<button class="dropdown-item" type="button" data-bind="text: $data"></button>
 					</div>
 				</div>
 				<p class="toggle-markers" data-bind="click: toggleLocations">Show/Hide All Markers</p>

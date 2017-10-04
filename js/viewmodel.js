@@ -16,6 +16,14 @@ var ViewModel = function() {
 	var self = this;
 	this.places = [];
 	this.filteredMarkers = ko.observableArray([]);
+	this.tags = [
+		'Landmarks',
+		'Restaurants',
+		'Coffee',
+		'Hiking',
+		'Recreation',
+		'Historic'
+	];
 
 	this.largeInfowindow = new google.maps.InfoWindow();
 

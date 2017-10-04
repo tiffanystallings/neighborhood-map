@@ -2,7 +2,7 @@ var locations = [
 	{
 		title: 'The Big Chicken',
 		favorite: false,
-		tags: ['landmark', 'restaurant'],
+		tags: ['landmarks', 'restaurants'],
 		location: 
 			{
 				lat: 33.9514002, 
@@ -12,7 +12,7 @@ var locations = [
 	{
 		title: 'Wing and Fish',
 		favorite: false,
-		tags: ['restaurant'],
+		tags: ['restaurants'],
 		location: 
 			{
 				lat: 33.9366209, 
@@ -22,7 +22,7 @@ var locations = [
 	{
 		title: 'Waffle House',
 		favorite: false,
-		tags: ['restaurant', 'coffee'],
+		tags: ['restaurants', 'coffee'],
 		location: 
 			{
 				lat: 33.9185753, 
@@ -62,7 +62,7 @@ var locations = [
 	{
 		title: 'Thaicoon and Sushi Bar',
 		favorite: false,
-		tags: ['restaurant'],
+		tags: ['restaurants'],
 		location: 
 			{
 				lat: 33.9535084, 
@@ -72,7 +72,7 @@ var locations = [
 	{
 		title: 'Martin\'s Restaurant',
 		favorite: false,
-		tags: ['restaurant', 'coffee'],
+		tags: ['restaurants', 'coffee'],
 		location: 
 			{
 				lat: 33.9206374, 
@@ -82,7 +82,7 @@ var locations = [
 	{
 		title: 'Starbucks',
 		favorite: false,
-		tags: ['coffee', 'restaurant'],
+		tags: ['coffee', 'restaurants'],
 		location: 
 			{
 				lat: 33.9526498, 
