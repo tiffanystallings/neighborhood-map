@@ -8,6 +8,36 @@ html, body {
   padding: 0;
 }
 
+header {
+  background-color: #33CCFF;
+  color: white;
+  text-align: center;
+}
+
+h1 {
+  padding-top: 20px;
+}
+
+.full-height {
+  height: 100%;
+}
+
+/* From Bootstrap's Documentation */
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  > .col,
+  > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+#aside {
+  background-color: #FFCC33;
+}
+
 #map {
   height: 100%;
 }
