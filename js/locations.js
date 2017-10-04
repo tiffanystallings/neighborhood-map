@@ -2,6 +2,7 @@ var locations = [
 	{
 		title: 'The Big Chicken',
 		favorite: false,
+		tags: ['restaurant', 'landmark'],
 		location: 
 			{
 				lat: 33.9514002, 
@@ -11,6 +12,7 @@ var locations = [
 	{
 		title: 'Wing and Fish',
 		favorite: false,
+		tags: ['restaurant'],
 		location: 
 			{
 				lat: 33.9366209, 
@@ -20,6 +22,7 @@ var locations = [
 	{
 		title: 'Waffle House',
 		favorite: false,
+		tags: ['restaurant'],
 		location: 
 			{
 				lat: 33.9185753, 
@@ -29,6 +32,7 @@ var locations = [
 	{
 		title: 'Kennesaw Mountain - Cheatham Hill',
 		favorite: false,
+		tags: ['recreation', 'hiking'],
 		location: 
 			{
 				lat: 33.93344039999999, 
@@ -38,6 +42,7 @@ var locations = [
 	{
 		title: 'Fair Oaks Recreation Center',
 		favorite: false,
+		tags: ['recreation', 'hiking'],
 		location: 
 			{
 				lat: 33.9176306, 
