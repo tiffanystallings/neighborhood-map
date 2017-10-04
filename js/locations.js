@@ -2,7 +2,7 @@ var locations = [
 	{
 		title: 'The Big Chicken',
 		favorite: false,
-		tags: ['restaurant', 'landmark'],
+		tags: ['landmark', 'restaurant'],
 		location: 
 			{
 				lat: 33.9514002, 
@@ -22,7 +22,7 @@ var locations = [
 	{
 		title: 'Waffle House',
 		favorite: false,
-		tags: ['restaurant'],
+		tags: ['restaurant', 'coffee'],
 		location: 
 			{
 				lat: 33.9185753, 
@@ -32,7 +32,7 @@ var locations = [
 	{
 		title: 'Kennesaw Mountain - Cheatham Hill',
 		favorite: false,
-		tags: ['recreation', 'hiking'],
+		tags: ['hiking', 'recreation'],
 		location: 
 			{
 				lat: 33.93344039999999, 
@@ -42,7 +42,7 @@ var locations = [
 	{
 		title: 'Fair Oaks Recreation Center',
 		favorite: false,
-		tags: ['recreation', 'hiking'],
+		tags: ['recreation'],
 		location: 
 			{
 				lat: 33.9176306, 
@@ -52,7 +52,7 @@ var locations = [
 	{
 		title: 'Cool Beans Coffee',
 		favorite: false,
-		tags: ['restaurant', 'coffee'],
+		tags: ['coffee'],
 		location: 
 			{
 				lat: 33.953122, 
@@ -62,7 +62,7 @@ var locations = [
 	{
 		title: 'Thaicoon and Sushi Bar',
 		favorite: false,
-		tags: ['restaurant', 'coffee'],
+		tags: ['restaurant'],
 		location: 
 			{
 				lat: 33.9535084, 
@@ -82,7 +82,7 @@ var locations = [
 	{
 		title: 'Starbucks',
 		favorite: false,
-		tags: ['restaurant', 'coffee'],
+		tags: ['coffee', 'restaurant'],
 		location: 
 			{
 				lat: 33.9526498, 

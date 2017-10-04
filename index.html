@@ -26,13 +26,10 @@
 		<h1>Mapping Marietta</h1>
 		<div class="row">
 			<div class="col-sm">
-				<input id="show-locs" type="button" value="Show Locations">
+				<input id="show-locs" data-bind="click: showAllLocations" type="button" value="Show Locations">
 			</div>
 			<div class="col-sm">
-				<input id="hide-locs" type="button" value="Hide Locations">
-			</div>
-			<div class="col-sm">
-				<input id="toggle-draw" type="button" value="Toggle Drawing">
+				<input id="hide-locs" data-bind="click: hideAllLocations" type="button" value="Hide Locations">
 			</div>
 		</div>
 	</header>
@@ -45,7 +42,7 @@
 	</section>
 
 
-	<script async defer src="https://maps.googleapis.com/maps/api/js?libraries=drawing,geometry&key=AIzaSyCjjGxJHkBxrgc6162Mc9A7c6NbLm_rIdc&v=3&callback=initMap"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyCjjGxJHkBxrgc6162Mc9A7c6NbLm_rIdc&v=3&callback=initialize"></script>
 
   	<script src="js/mapstyle.js"></script>
 	<script src="js/locations.js"></script>
