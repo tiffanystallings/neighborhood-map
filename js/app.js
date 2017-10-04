@@ -150,3 +150,5 @@ function calculateArea (polygon) {
 
 	console.log(acres);
 }
+
+ko.applyBindings(new ViewModel());
