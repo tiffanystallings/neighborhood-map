@@ -35,6 +35,16 @@
 
 		<div class="row content">
 			<div class="col-sm-3 full-height" id="aside">
+				<div class="dropdown">
+					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Filter Locations
+					</button>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenu">
+						<button class="dropdown-item" type="button">Action</button>
+						<button class="dropdown-item" type="button">Another action</button>
+						<button class="dropdown-item" type="button">Something else here</button>
+					</div>
+				</div>
 				<p class="toggle-markers" data-bind="click: toggleLocations">Show/Hide All Markers</p>
 				<div data-bind="foreach: filteredMarkers">
 					<div class="location" data-bind="text: title, click: $parent.selectMarker"></div>

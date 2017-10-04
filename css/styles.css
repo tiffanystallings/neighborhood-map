@@ -30,6 +30,12 @@ h1 {
   text-align: center;
 }
 
+.dropdown-toggle {
+  margin-top: 10px;
+  width: 100%;
+  background-color: #33CCFF;
+}
+
 .full-height {
   height: 100%;
 }
