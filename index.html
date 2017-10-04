@@ -40,7 +40,7 @@
 						Filter Locations
 					</button>
 					<div class="dropdown-menu" data-bind="foreach: tags" aria-labelledby="dropdownMenu">
-						<button class="dropdown-item" type="button" data-bind="text: $data"></button>
+						<button class="dropdown-item" type="button" data-bind="text: $data, click: $parent.filterLocations"></button>
 					</div>
 				</div>
 				<p class="toggle-markers" data-bind="click: toggleLocations">Show/Hide All Markers</p>

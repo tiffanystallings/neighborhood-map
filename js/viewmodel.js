@@ -36,6 +36,25 @@ var ViewModel = function() {
 		self.filteredMarkers.push(newPlace);
 	});
 
+	this.filterLocations = function(clicked) {
+		var clickedTag = clicked.toLowerCase();
+		self.hideAllLocations();
+
+		self.places.forEach(function(place) {
+			var tagMatch = false;
+			place.tags.forEach(function(tag) {
+				if(tag == clickedTag) {
+					tagMatch = true;
+				}
+			});
+
+			if (tagMatch) {
+				self.filteredMarkers.push(place);
+				place.marker.setMap(map);
+			}
+		});
+	}
+
 	this.selectMarker = function(clicked) {
 		if (clicked.marker) {
 			clicked = clicked.marker;
@@ -58,6 +77,7 @@ var ViewModel = function() {
 
 	this.showAllLocations = function() {
 		var bounds = new google.maps.LatLngBounds();
+		self.filteredMarkers.removeAll();
 
 		for (var i=0; i<self.places.length; i++) {
 			self.places[i].marker.setMap(map);
