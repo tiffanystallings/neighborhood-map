@@ -1,5 +1,5 @@
 Getting started:
-[ ] Complete a mockup
+[X] Complete a mockup
 [ ] Set up project folder
 [ ] Hook up Knockout and organize js into MVVM files
 [ ]	Acquire API keys and understand documentation
