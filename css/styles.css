@@ -4,22 +4,23 @@
 
 html, body {
   height: 100vh;
+  max-width: 100%;
   margin: 0;
   padding: 0;
 }
 
-.container-fluid {
-  padding: 0;
-}
-
-header {
+.header {
   background-color: #33CCFF;
   color: white;
-  text-align: center
+  height: 15vh;
 }
 
+.content {
+  height: 85vh;
+}
 h1 {
   padding-top: 20px;
+  text-align: center;
 }
 
 .full-height {
@@ -27,7 +28,7 @@ h1 {
 }
 
 /* From Bootstrap's Documentation.
-// Eliminates Gutters between layout items. */
+// Eliminates Gutters between layout items. 
 .no-gutters {
   margin-right: 0;
   margin-left: 0;
@@ -38,6 +39,7 @@ h1 {
     padding-left: 0;
   }
 }
+*/
 
 #aside {
   background-color: #FFCC33;

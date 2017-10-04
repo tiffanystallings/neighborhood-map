@@ -23,27 +23,34 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
 </head>
 
-<body class="container-fluid">
-	<header class="">
-		<h1>Mapping Marietta</h1>
+<body>
+	<div class="container-fluid full-height">
+		
 		<div class="row">
-			<div class="col-sm">
+			<div class="col-sm-12 header">
+				<h1>Mapping Marietta</h1>
+			</div>
+		</div>
+		<!--
+		<div class="row">
+			<div class="col-sm-6">
 				<input id="show-locs" data-bind="click: showAllLocations" type="button" value="Show Locations">
 			</div>
-			<div class="col-sm">
+			<div class="col-sm-6">
 				<input id="hide-locs" data-bind="click: hideAllLocations" type="button" value="Hide Locations">
 			</div>
 		</div>
-	</header>
+		-->
+		
 
-	<section class="full-height">
-		<div class="row full-height no-gutters">
+		<div class="row content">
 			<div class="col-sm-3 full-height" id="aside" data-bind="foreach: filteredMarkers">
 				<div class="location" data-bind="text: title, click: $parent.selectMarker"></div>
 			</div>
 			<div class="col-sm-9 full-height" id="map"></div>
 		</div>
-	</section>
+
+	</div>
 
 
 	<script async defer src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyCjjGxJHkBxrgc6162Mc9A7c6NbLm_rIdc&v=3&callback=initialize"></script>
