@@ -1,42 +1,47 @@
+var Place = function(data) {
+	var self = this;
+	this.position = data.location;
+	this.title = data.title;
+	this.tags = data.tags;
+	this.favorite = ko.observable(data.favorite);
+	this.marker = new google.maps.Marker({
+		position: self.position,
+		title: self.title,
+		animation: google.maps.Animation.DROP
+	});
+}
+
 var ViewModel = function() {
 	var self = this;
-	this.markers = [];
+	this.places = [];
+
 	this.filteredMarkers = ko.observableArray([]);
 	this.largeInfowindow = new google.maps.InfoWindow();
 
-	for (var i=0; i<locations.length; i++) {
-		var position = locations[i].location;
-		var title = locations[i].title;
-		var marker = new google.maps.Marker({
-			position: position,
-			title: title,
-			animation: google.maps.Animation.DROP,
-			id: i
-		});
-
-		this.markers.push(marker);
-
-		marker.addListener('click', function() {
+	locations.forEach(function(place) {
+		var newPlace = new Place(place);
+		newPlace.marker.addListener('click', function() {
 			self.selectMarker(this);
 		});
-	};
+		self.places.push(newPlace);
+	});
 
-	this.selectMarker = function(marker) {
-		for (var i = 0; i < self.markers.length; i++) {
-    			self.markers[i].setAnimation(null);
+	this.selectMarker = function(clicked) {
+		for (var i = 0; i < self.places.length; i++) {
+    			self.places[i].marker.setAnimation(null);
 			}
-		map.setCenter(marker.position);
-		self.populateInfoWindow(marker, self.largeInfowindow);
-		marker.setAnimation(google.maps.Animation.BOUNCE);
+		map.setCenter(clicked.position);
+		self.populateInfoWindow(clicked, self.largeInfowindow);
+		clicked.setAnimation(google.maps.Animation.BOUNCE);
 	}
 
 	this.showAllLocations = function() {
 		var bounds = new google.maps.LatLngBounds();
 
-		for (var i=0; i<self.markers.length; i++) {
-			self.markers[i].setMap(map);
-			self.filteredMarkers.push(self.markers[i]);
-			bounds.extend(self.markers[i].position);
+		for (var i=0; i<self.places.length; i++) {
+			self.places[i].marker.setMap(map);
+			self.filteredMarkers.push(self.places[i].marker);
+			bounds.extend(self.places[i].marker.position);
 		}
 
 		map.fitBounds(bounds);
