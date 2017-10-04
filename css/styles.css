@@ -12,15 +12,21 @@ html, body {
 .header {
   background-color: #33CCFF;
   color: white;
-  height: 8vh;
+  height: 16vh;
   align-items: flex-end;
 }
 
 .content {
   height: 84vh;
 }
+
 h1 {
   padding-top: 20px;
+  text-align: center;
+}
+
+.toggle-markers {
+  text-decoration: underline;
   text-align: center;
 }
 
@@ -44,13 +50,13 @@ h1 {
 
 #aside {
   background-color: #FFCC33;
+  color: white;
   overflow: auto;
 }
 
 .location {
   width: 100%;
   padding: 20px;
-  color: white;
   text-align: center;
   font-size: 20px;
 }

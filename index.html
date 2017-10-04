@@ -31,18 +31,14 @@
 				<h1>Mapping Marietta</h1>
 			</div>
 		</div>
-		<div class="row header">
-			<div class="col-sm-3">
-				<input id="show-locs" data-bind="click: toggleLocations" type="button" value="Show/Hide Locations">
-			</div>
-			<div class="col-sm-9">
-			</div>
-		</div>
 		
 
 		<div class="row content">
-			<div class="col-sm-3 full-height" id="aside" data-bind="foreach: filteredMarkers">
-				<div class="location" data-bind="text: title, click: $parent.selectMarker"></div>
+			<div class="col-sm-3 full-height" id="aside">
+				<p class="toggle-markers" data-bind="click: toggleLocations">Show/Hide All Markers</p>
+				<div data-bind="foreach: filteredMarkers">
+					<div class="location" data-bind="text: title, click: $parent.selectMarker"></div>
+				</div>
 			</div>
 			<div class="col-sm-9 full-height" id="map"></div>
 		</div>
