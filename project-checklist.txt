@@ -1,7 +1,7 @@
 Getting started:
 [X] Complete a mockup
 [X] Set up project folder
-[ ] Hook up Knockout and organize js into MVVM files
+[X] Hook up Knockout and organize js into MVVM files
 [ ]	Acquire API keys and understand documentation
 
 Interface Requirements:
@@ -9,26 +9,26 @@ Interface Requirements:
 [ ] All application components are usable across modern desktop, tablet, and phone browsers.
 
 App Functionality:
-[ ] Includes a text input field or dropdown menu that filters the map markers and list items to locations matching the text input or selection. Filter function runs error-free.
+[X] Includes a text input field or dropdown menu that filters the map markers and list items to locations matching the text input or selection. Filter function runs error-free.
 
-[ ] A list-view of location names is provided which displays all locations by default, and displays the filtered subset of locations when a filter is applied.
+[X] A list-view of location names is provided which displays all locations by default, and displays the filtered subset of locations when a filter is applied.
 
-[ ] Clicking a location on the list displays unique information about the location, and animates its associated map marker (e.g. bouncing, color change.)
+[X] Clicking a location on the list displays unique information about the location, and animates its associated map marker (e.g. bouncing, color change.)
 
-[ ]List functionality is responsive and runs error free.
+[X] List functionality is responsive and runs error free.
 
-[ ] Map displays all location markers by default, and displays the filtered subset of location markers when a filter is applied.
+[X] Map displays all location markers by default, and displays the filtered subset of location markers when a filter is applied.
 
-[ ] Clicking a marker displays unique information about a location in either an infoWindow or DOM element.
+[X] Clicking a marker displays unique information about a location in either an infoWindow or DOM element.
 
-[ ] Markers should animate when clicked (e.g. bouncing, color change.)
+[X] Markers should animate when clicked (e.g. bouncing, color change.)
 
 [ ] Any additional custom functionality provided in the app functions error-free.
 
 App Architecture:
 [ ] Code is properly separated based upon Knockout best practices (follow an MVVM pattern, avoid updating the DOM manually with jQuery or JS, use observables rather than forcing refreshes manually, etc). Knockout should not be used to handle the Google Map API.
 
-[ ] There are at least 5 locations in the model. These may be hard-coded or retrieved from a data API.
+[X] There are at least 5 locations in the model. These may be hard-coded or retrieved from a data API.
 
 Asynchronous Data Usage:
 [ ] Application utilizes the Google Maps API and at least one non-Google third-party API.

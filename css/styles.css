@@ -75,3 +75,9 @@ h1 {
   height: 300px;
   width: 400px;
 }
+
+@media (max-width:767px) {
+    .col-sm-9, #map {
+      width: 100%;
+    }
+}
