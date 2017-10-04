@@ -1,6 +1,7 @@
 var ViewModel = function() {
 	var self = this;
 	this.markers = [];
+	this.filteredMarkers = ko.observableArray([]);
 	this.largeInfowindow = new google.maps.InfoWindow();
 
 	for (var i=0; i<locations.length; i++) {
@@ -34,6 +35,7 @@ var ViewModel = function() {
 
 		for (var i=0; i<self.markers.length; i++) {
 			self.markers[i].setMap(map);
+			self.filteredMarkers.push(self.markers[i]);
 			bounds.extend(self.markers[i].position);
 		}
 
@@ -41,8 +43,9 @@ var ViewModel = function() {
 	}
 
 	this.hideAllLocations = function() {
-		for (var i=0; i<self.markers.length; i++) {
-			self.markers[i].setMap(null);
+		var markers = self.filteredMarkers.removeAll();
+		for (var i=0; i<markers.length; i++) {
+			markers[i].setMap(null);
 		}
 	}
 
