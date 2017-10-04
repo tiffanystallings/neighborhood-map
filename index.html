@@ -39,7 +39,7 @@
 	<section class="full-height">
 		<div class="row full-height no-gutters">
 			<div class="col-sm-3 full-height" id="aside" data-bind="foreach: markers">
-				<div class="location" data-bind="text: title"></div>
+				<div class="location" data-bind="text: title, click: $parent.selectMarker"></div>
 			</div>
 			<div class="col-sm-9 full-height" id="map"></div>
 		</div>

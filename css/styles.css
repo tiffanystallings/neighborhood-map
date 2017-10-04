@@ -8,6 +8,10 @@ html, body {
   padding: 0;
 }
 
+.container-fluid {
+  padding: 0;
+}
+
 header {
   background-color: #33CCFF;
   color: white;
@@ -22,7 +26,8 @@ h1 {
   height: 100%;
 }
 
-/* From Bootstrap's Documentation */
+/* From Bootstrap's Documentation.
+// Eliminates Gutters between layout items. */
 .no-gutters {
   margin-right: 0;
   margin-left: 0;
@@ -32,10 +37,6 @@ h1 {
     padding-right: 0;
     padding-left: 0;
   }
-}
-
-.container-fluid {
-  padding: 0;
 }
 
 #aside {
