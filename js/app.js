@@ -2,13 +2,6 @@ var map;
 var drawingManager;
 var polygon = null;
 var markers = [];
-var locations = [
-	{title: 'The Big Chicken', location: {lat: 33.9514002, lng: -84.52036629999999}},
-	{title: 'Wing and Fish', location: {lat: 33.9366209, lng: -84.55588999999999}},
-	{title: 'Waffle House', location: {lat: 33.9185753, lng: -84.58195169999999}},
-	{title: 'Kennesaw Mountain - Cheatham Hill', location: {lat: 33.93344039999999, lng: -84.60469599999999}},
-	{title: 'Fair Oaks Recreation Center', location: {lat: 33.9176306, lng: -84.5647575}}
-];
 		
 function initMap () {
 	largeInfowindow = new google.maps.InfoWindow();
