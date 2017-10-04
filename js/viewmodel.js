@@ -40,6 +40,14 @@ var ViewModel = function() {
 		clicked.setAnimation(google.maps.Animation.BOUNCE);
 	}
 
+	this.toggleLocations = function() {
+		if (self.filteredMarkers().length == self.places.length) {
+			self.hideAllLocations();
+		} else {
+			self.showAllLocations();
+		}
+	}
+
 	this.showAllLocations = function() {
 		var bounds = new google.maps.LatLngBounds();
 
@@ -53,8 +61,8 @@ var ViewModel = function() {
 	}
 
 	this.hideAllLocations = function() {
-		var removedPlaces = self.filteredMarkers.removeAll();
-		removedPlaces.forEach(function(place) {
+		self.filteredMarkers.removeAll();
+		self.places.forEach(function(place) {
 			place.marker.setMap(null);
 		})
 	}

@@ -12,11 +12,12 @@ html, body {
 .header {
   background-color: #33CCFF;
   color: white;
-  height: 15vh;
+  height: 8vh;
+  align-items: flex-end;
 }
 
 .content {
-  height: 85vh;
+  height: 84vh;
 }
 h1 {
   padding-top: 20px;
