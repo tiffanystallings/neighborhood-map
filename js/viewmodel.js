@@ -56,10 +56,10 @@ var ViewModel = function() {
 		var radius = 50;
 
 		function getStreetView (data, status) {
-			infowindow.setContent('Loading...');
 			if (status == 'OK') {
 				var nearStreetViewLocation = data.location.latLng;
-				var heading = google.maps.geometry.spherical.computeHeading(nearStreetViewLocation, marker.position);
+				var heading = google.maps.geometry.spherical.computeHeading(
+					nearStreetViewLocation, marker.position);
 				
 				infowindow.setContent('<div>' + marker.title + '</div>' + '<div id="pano"></div>');
 				var panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'));
