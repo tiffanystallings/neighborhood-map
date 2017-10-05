@@ -58,6 +58,7 @@ h1 {
   background-color: #FFCC33;
   color: white;
   overflow: auto;
+  width: 25%;
 }
 
 .location {
@@ -69,6 +70,7 @@ h1 {
 
 #map {
   height: 100%;
+  width: 75%;
 }
 
 #pano {

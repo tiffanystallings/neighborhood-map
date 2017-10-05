@@ -32,13 +32,15 @@
 		
 
 		<div class="row content">
-			<div class="col-sm-3 full-height" id="aside">
+			<div class="col-sm full-height pull-left" id="aside">
 				<div class="dropdown">
-					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Filter Locations
 					</button>
 					<div class="dropdown-menu" data-bind="foreach: tags" aria-labelledby="dropdownMenu">
-						<button class="dropdown-item" type="button" data-bind="text: $data, click: $parent.filterLocations"></button>
+						<p>
+							<a class="dropdown-item" href="#" data-bind="text: $data, click: $parent.filterLocations"></a>
+						</p>
 					</div>
 				</div>
 				<p class="toggle-markers" data-bind="click: toggleLocations">Show/Hide All Markers</p>
@@ -46,7 +48,7 @@
 					<div class="location" data-bind="text: title, click: $parent.selectMarker"></div>
 				</div>
 			</div>
-			<div class="col-sm-9 full-height" id="map"></div>
+			<div class="col-sm full-height pull-right" id="map"></div>
 		</div>
 
 	</div>
