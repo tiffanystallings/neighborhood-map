@@ -58,7 +58,8 @@ h1 {
   background-color: #FFCC33;
   color: white;
   overflow: auto;
-  width: 25%;
+  width: 25vw;
+  height: 84vh;
 }
 
 .location {
@@ -69,8 +70,10 @@ h1 {
 }
 
 #map {
-  height: 100%;
-  width: 75%;
+  position: absolute;
+  height: 84vh;
+  left: 25vw;
+  width: 75vw;
 }
 
 #pano {
@@ -82,7 +85,7 @@ h1 {
   display: none;
 }
 
-@media (max-width:767px) {
+@media only screen and (max-width:767px) {
     #menu-toggle {
       width: 8vw;
       background-color: #FFCC33;
@@ -91,7 +94,7 @@ h1 {
       align-items: center;
       justify-content: center;
       display: flex;
-      height: 100%;
+      height: 90vh;
       position: relative;
       z-index: 99;
     }
@@ -103,6 +106,7 @@ h1 {
     #aside {
       width: 0;
       position: relative;
+      height: 90vh;
       z-index: 99;
       -webkit-transition: width 1s;
       transition: width 1s;
@@ -117,9 +121,17 @@ h1 {
     }
 
     #map {
-      position: absolute;
       left: 8vw;
       width: 92vw;
-      height: 84vh;
+      height: 90vh;
+    }
+
+    .header {
+      height: 10vh;
+    }
+
+    h1 {
+      font-size: 16px;
+      padding-top: 0;
     }
 }
