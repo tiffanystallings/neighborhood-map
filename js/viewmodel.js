@@ -16,6 +16,10 @@ var ViewModel = function() {
 	var self = this;
 	this.places = [];
 	this.filteredMarkers = ko.observableArray([]);
+	this.locationsPane = ko.observable(false);
+	this.locationsPaneClass = ko.pureComputed(function() {
+		return self.locationsPane() ? "extend" : "";
+	});
 	this.tags = [
 		'Landmarks',
 		'Restaurants',
@@ -35,6 +39,14 @@ var ViewModel = function() {
 		self.places.push(newPlace);
 		self.filteredMarkers.push(newPlace);
 	});
+
+	this.toggleLocationsPane = function() {
+		if (self.locationsPane()) {
+			self.locationsPane(false);
+		} else {
+			self.locationsPane(true);
+		}
+	}
 
 	this.filterLocations = function(clicked) {
 		var clickedTag = clicked.toLowerCase();
@@ -56,6 +68,7 @@ var ViewModel = function() {
 	}
 
 	this.selectMarker = function(clicked) {
+		self.locationsPane(false);
 		if (clicked.marker) {
 			clicked = clicked.marker;
 		}

@@ -74,12 +74,52 @@ h1 {
 }
 
 #pano {
-  height: 300px;
-  width: 400px;
+  height: 150px;
+  width: 200px;
+}
+
+.icon {
+  display: none;
 }
 
 @media (max-width:767px) {
-    .col-sm-9, #map {
-      width: 100%;
+    #menu-toggle {
+      width: 8vw;
+      background-color: #FFCC33;
+      color: white;
+      font-size: 2em;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      height: 100%;
+      position: relative;
+      z-index: 99;
+    }
+
+    .icon {
+      display: block;
+    }
+
+    #aside {
+      width: 0;
+      position: relative;
+      z-index: 99;
+      -webkit-transition: width 1s;
+      transition: width 1s;
+    }
+
+    #aside.extend {
+      width: 92vw;
+    }
+
+    #aside.hide {
+      width: 0;
+    }
+
+    #map {
+      position: absolute;
+      left: 8vw;
+      width: 92vw;
+      height: 84vh;
     }
 }

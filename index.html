@@ -32,7 +32,7 @@
 		
 
 		<div class="row content">
-			<div class="col-sm full-height pull-left" id="aside">
+			<div class="col-sm full-height pull-left" id="aside" data-bind="css: locationsPaneClass">
 				<div class="dropdown">
 					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Filter Locations
@@ -47,6 +47,9 @@
 				<div data-bind="foreach: filteredMarkers">
 					<div class="location" data-bind="text: title, click: $parent.selectMarker"></div>
 				</div>
+			</div>
+			<div class="col-sm visible-xs-* visible-sm-* full-height pull-left" id="menu-toggle" data-bind="click: toggleLocationsPane">
+				<p class="icon">☰</p>
 			</div>
 			<div class="col-sm full-height pull-right" id="map"></div>
 		</div>
