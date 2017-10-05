@@ -34,14 +34,15 @@
 		<div class="row content">
 			<div class="col-sm full-height pull-left" id="aside" data-bind="css: locationsPaneClass">
 				<div class="dropdown">
-					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Filter Locations
+						<span class="caret"></span>
 					</button>
-					<div class="dropdown-menu" data-bind="foreach: tags" aria-labelledby="dropdownMenu">
-						<p>
+					<ul class="dropdown-menu" data-bind="foreach: tags" aria-labelledby="dropdownMenu">
+						<li>
 							<a class="dropdown-item" href="#" data-bind="text: $data, click: $parent.filterLocations"></a>
-						</p>
-					</div>
+						</li>
+					</ul>
 				</div>
 				<p class="toggle-markers" data-bind="click: toggleLocations">Show/Hide All Markers</p>
 				<div data-bind="foreach: filteredMarkers">
