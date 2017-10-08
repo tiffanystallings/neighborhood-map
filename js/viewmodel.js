@@ -108,7 +108,52 @@ var ViewModel = function() {
 		})
 	}
 
-	this.populateInfoWindow = function (marker, infowindow) {
+	this.getLocationInfo = function(marker, infowindow) {
+		var pointStr = marker.position.toString().slice(1,-1).replace(' ', '');
+		var baseUrl = 'https://api.foursquare.com/v2/venues/search';
+
+
+		$.ajax({
+			url: baseUrl,
+			data: {
+				ll: pointStr,
+				client_id: fsId,
+				client_secret: fsSecret,
+				v: '20171007',
+				query: marker.title
+			},
+			method: 'GET',
+			success: function(response) {
+				var venue = response.response.venues[0]
+				var result = {
+					name: venue.name,
+					phone: venue.contact.formattedPhone,
+					address: venue.location.formattedAddress
+				}
+				var contentString ='<h4>' + result.name + '</h4>';
+
+				if (result.phone) {
+					contentString += '<p>Phone: ' + result.phone + '</p>';
+				}
+
+				if (result.address) {
+					contentString += '<p>Address: </p>'
+					result.address.forEach(function(line) {
+						contentString += '<p>' + line + '</p>';
+					});
+				}
+
+				contentString += '<p><i>Powered by <a href="http://foursquare.com"' +
+					'target="_blank">Foursquare</a></i></p>'
+
+				infowindow.setContent(contentString);
+			}
+		}).fail(function() {
+			alert('Unable to contact Foursquare');
+		});
+	}
+
+	this.populateInfoWindow = function(marker, infowindow) {
 		if (infowindow.marker != marker) {
 			infowindow.setContent('');
 			infowindow.marker = marker;
@@ -119,32 +164,7 @@ var ViewModel = function() {
 			infowindow.marker = null;
 		});
 
-		var streetViewService = new google.maps.StreetViewService();
-		var radius = 50;
-
-		function getStreetView (data, status) {
-			if (status == 'OK') {
-				var nearStreetViewLocation = data.location.latLng;
-				var heading = google.maps.geometry.spherical.computeHeading(
-					nearStreetViewLocation, marker.position);
-				
-				infowindow.setContent('<div>' + marker.title + '</div>' + '<div id="pano"></div>');
-				var panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'));
-				panorama.setPano(data.location.pano);
-				panorama.setPov({
-					heading: heading,
-					pitch: 20
-				});
-				panorama.setVisible(true);
-			} else {
-				console.log('request failed');
-				infowindow.setContent('<div>' + marker.title + '</div>' +
-					'<div>No Street View Found</div>');
-			}
-		}
-
-		streetViewService.getPanorama({location: marker.position, radius: radius}, getStreetView);
-		console.log('sent request');
+		self.getLocationInfo(marker, infowindow);
 		infowindow.open(map, marker);
 	}
 }
