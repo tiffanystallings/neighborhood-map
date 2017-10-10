@@ -31,18 +31,18 @@ App Architecture:
 [X] There are at least 5 locations in the model. These may be hard-coded or retrieved from a data API.
 
 Asynchronous Data Usage:
-[ ] Application utilizes the Google Maps API and at least one non-Google third-party API.
+[X] Application utilizes the Google Maps API and at least one non-Google third-party API.
 
-[ ] All data requests are retrieved in an asynchronous manner.
+[X] All data requests are retrieved in an asynchronous manner.
 
-[ ] Data requests that fail are handled gracefully using common fallback techniques (i.e. AJAX error or fail methods). 'Gracefully' means the user isn’t left wondering why a component isn’t working. If an API doesn’t load there should be some visible indication on the page (an alert box is ok) that it didn’t load. Note: You do not need to handle cases where the user goes offline.
+[X] Data requests that fail are handled gracefully using common fallback techniques (i.e. AJAX error or fail methods). 'Gracefully' means the user isn’t left wondering why a component isn’t working. If an API doesn’t load there should be some visible indication on the page (an alert box is ok) that it didn’t load. Note: You do not need to handle cases where the user goes offline.
 
 Location Details Functionality:
-[ ] Functionality providing additional data about a location is provided and sourced from a 3rd party API. Information can be provided either in the marker’s infoWindow, or in an HTML element in the DOM (a sidebar, the list view, etc.)
+[X] Functionality providing additional data about a location is provided and sourced from a 3rd party API. Information can be provided either in the marker’s infoWindow, or in an HTML element in the DOM (a sidebar, the list view, etc.)
 
 [ ] Provide attribution for the source of additional data. For example, if using Foursquare, indicate somewhere in your UI and in your README that you are using Foursquare data.
 
-[ ] Functionality is presented in a usable and responsive manner
+[X] Functionality is presented in a usable and responsive manner
 
 Documentation:
 [ ] A README file is included detailing all steps required to successfully run the application.
@@ -54,15 +54,15 @@ Documentation:
 [ ] If build tools (such as Gulp or Grunt) are used, both source and production code are submitted in the same repository in separate directories. These directories are usually named src and dist respectively.
 
 Suggestions:
-[ ] Add unique functionality beyond the minimum requirements (i.e. the ability to “favorite” a location, etc.).
+[X] Add unique functionality beyond the minimum requirements (i.e. the ability to “favorite” a location, etc.).
 
 [ ] Incorporate a build process allowing for production quality, minified code, to be delivered to the client.
 
-[ ] Data persists when the app is closed and reopened, either through localStorage or an external database (e.g. Firebase).
+[X] Data persists when the app is closed and reopened, either through localStorage or an external database (e.g. Firebase).
 
 [ ] Include additional third-party data sources beyond the minimum required.
 
-[ ] Style different markers in different (and functionally-useful) ways, depending on the data set.
+[X] Style different markers in different (and functionally-useful) ways, depending on the data set.
 
 [ ] Implement additional optimizations that improve the performance and user experience of the filter functionality (keyboard shortcuts, autocomplete functionality, filtering of multiple fields, etc).
 
