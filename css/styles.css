@@ -11,7 +11,11 @@ html, body {
 }
 
 .header {
-  background-color: #33CCFF;
+  background: #33CCFF;
+  background: -webkit-linear-gradient(45deg, rgb(150, 204, 255), rgb(51, 204, 255), rgb(51, 240, 255));
+  background: -o-linear-gradient(45deg, rgb(150, 204, 255), rgb(51, 204, 255), rgb(51, 240, 255));
+  background: -moz-linear-gradient(45deg, rgb(150, 204, 255), rgb(51, 204, 255), rgb(51, 240, 255));
+  background: linear-gradient(45deg, rgb(150, 204, 255), rgb(51, 204, 255), rgb(51, 240, 255));
   color: white;
   height: 16vh;
   align-items: flex-end;
@@ -35,7 +39,15 @@ h1 {
 .dropdown-toggle {
   margin-top: 10px;
   width: 100%;
-  background-color: #33CCFF;
+  color: white;
+  background: #33CCFF;
+  background: -webkit-linear-gradient(45deg, rgb(150, 204, 255), rgb(51, 204, 255), rgb(51, 240, 255));
+  background: -o-linear-gradient(45deg, rgb(150, 204, 255), rgb(51, 204, 255), rgb(51, 240, 255));
+  background: -moz-linear-gradient(45deg, rgb(150, 204, 255), rgb(51, 204, 255), rgb(51, 240, 255));
+  background: linear-gradient(45deg, rgb(150, 204, 255), rgb(51, 204, 255), rgb(51, 240, 255));
+}
+
+.dropdown-toggle:hover {
   color: white;
 }
 
