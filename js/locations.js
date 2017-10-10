@@ -1,11 +1,11 @@
-var locations = [
+let locations = [
 	{
 		title: 'The Big Chicken',
 		favorite: false,
 		tags: ['landmarks', 'restaurants'],
-		location: 
+		location:
 			{
-				lat: 33.9514002, 
+				lat: 33.9514002,
 				lng: -84.52036629999999
 			}
 	},
@@ -13,9 +13,9 @@ var locations = [
 		title: 'Wing and Fish',
 		favorite: false,
 		tags: ['restaurants'],
-		location: 
+		location:
 			{
-				lat: 33.9366209, 
+				lat: 33.9366209,
 				lng: -84.55588999999999
 			}
 	},
@@ -23,9 +23,9 @@ var locations = [
 		title: 'Waffle House',
 		favorite: false,
 		tags: ['restaurants', 'coffee'],
-		location: 
+		location:
 			{
-				lat: 33.9185753, 
+				lat: 33.9185753,
 				lng: -84.58195169999999
 			}
 	},
@@ -33,9 +33,9 @@ var locations = [
 		title: 'Kennesaw Mountain - Cheatham Hill',
 		favorite: false,
 		tags: ['hiking', 'recreation'],
-		location: 
+		location:
 			{
-				lat: 33.93344039999999, 
+				lat: 33.93344039999999,
 				lng: -84.60469599999999
 			}
 	},
@@ -43,9 +43,9 @@ var locations = [
 		title: 'Fair Oaks Recreation Center',
 		favorite: false,
 		tags: ['recreation'],
-		location: 
+		location:
 			{
-				lat: 33.9176306, 
+				lat: 33.9176306,
 				lng: -84.5647575
 			}
 	},
@@ -53,9 +53,9 @@ var locations = [
 		title: 'Cool Beans Coffee',
 		favorite: false,
 		tags: ['coffee'],
-		location: 
+		location:
 			{
-				lat: 33.953122, 
+				lat: 33.953122,
 				lng:  -84.5508696
 			}
 	},
@@ -63,9 +63,9 @@ var locations = [
 		title: 'Thaicoon and Sushi Bar',
 		favorite: false,
 		tags: ['restaurants'],
-		location: 
+		location:
 			{
-				lat: 33.9535084, 
+				lat: 33.9535084,
 				lng:  -84.5509307
 			}
 	},
@@ -73,9 +73,9 @@ var locations = [
 		title: 'Martin\'s Restaurant',
 		favorite: false,
 		tags: ['restaurants', 'coffee'],
-		location: 
+		location:
 			{
-				lat: 33.9206374, 
+				lat: 33.9206374,
 				lng:  -84.580055
 			}
 	},
@@ -83,9 +83,9 @@ var locations = [
 		title: 'Starbucks',
 		favorite: false,
 		tags: ['coffee', 'restaurants'],
-		location: 
+		location:
 			{
-				lat: 33.9526498, 
+				lat: 33.9526498,
 				lng:  -84.551746
 			}
 	},
@@ -93,9 +93,9 @@ var locations = [
 		title: 'Marietta Museum of History',
 		favorite: false,
 		tags: ['historic'],
-		location: 
+		location:
 			{
-				lat: 33.9526085, 
+				lat: 33.9526085,
 				lng:  -84.55086279999999
 			}
 	},
@@ -103,10 +103,20 @@ var locations = [
 		title: 'Marietta National Cemetery',
 		favorite: false,
 		tags: ['historic'],
-		location: 
+		location:
 			{
-				lat: 33.9506749, 
+				lat: 33.9506749,
 				lng:  -84.53811999999999
 			}
 	}
 ];
+
+const icons = {
+	landmarks: 'images/landmark.png',
+	historic: 'images/historic.png',
+	coffee: 'images/coffee.png',
+	restaurants: 'images/restaurant.png',
+	recreation: 'images/recreation.png',
+	hiking: 'images/hiking.png',
+	favorite: 'images/favorite.png'
+};
