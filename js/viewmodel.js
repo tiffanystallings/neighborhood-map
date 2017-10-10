@@ -1,19 +1,28 @@
+/**
+* A constructor representing each place the app highlights on the map.
+* Creates a Google Maps Marker object and places it on the map.
+* Takes a location object that holds the place's data as a parameter.
+*/
 const Place = function(data) {
 	const self = this;
 	this.position = data.location;
 	this.title = data.title;
 	this.tags = data.tags;
 	this.favorite = ko.observable(data.favorite);
+	// Changes the glyphicon graphic based on the favorite boolean.
 	this.favoriteClass = ko.pureComputed(function() {
 		return self.favorite() ? 'glyphicon-star' : 'glyphicon-star-empty';
 	})
 
+	// Check if place is already marked as favorite, and assign the
+	// map icon accordingly.
 	if (self.favorite()) {
 		this.icon = icons.favorite;
 	} else {
 		this.icon = icons[self.tags[0]];
 	};
 
+	// Create the map marker.
 	this.marker = new google.maps.Marker({
 		position: self.position,
 		title: self.title,
@@ -22,6 +31,12 @@ const Place = function(data) {
 		animation: google.maps.Animation.DROP
 	});
 
+	/**
+	* Triggered by clicking the star icon in the app.
+	* Checks state of the favorite boolean and toggles it accordingly.
+	* Also persists this change to the locations object, which is then
+	* pushed to localStorage for semi-permanence.
+	*/
 	this.toggleFavorite = function() {
 		if (self.favorite()) {
 			self.favorite(false);
@@ -42,14 +57,23 @@ const Place = function(data) {
 };
 
 
+/**
+* Constructor that serves as the Knockout ViewModel.
+* Handles all user interaction with the app.
+*/
 const ViewModel = function() {
 	const self = this;
 	this.places = [];
 	this.filteredMarkers = ko.observableArray([]);
+
+	// Toggles the visibility of the locations menu on smaller screens
+	// when the user clicks the hamburger icon.
 	this.locationsPane = ko.observable(false);
 	this.locationsPaneClass = ko.pureComputed(function() {
 		return self.locationsPane() ? 'extend' : '';
 	});
+
+	// Tags to add to the filter menu.
 	this.tags = [
 		'Favorites',
 		'Landmarks',
@@ -60,17 +84,25 @@ const ViewModel = function() {
 		'Historic'
 	];
 
+	// Establish a blank infowindow to alter later.
 	this.largeInfowindow = new google.maps.InfoWindow();
 
+	// If there is already an instance of locations in localStorage,
+	// use that one instead.
 	if (localStorage.locations) {
 		locations = JSON.parse(localStorage.locations);
 	};
 
+	// Create instances of Place by iterating over each location object.
 	locations.forEach(function(place) {
 		let newPlace = new Place(place);
+
+		// Save an event listener to select a marker on click.
 		newPlace.marker.addListener('click', function() {
 			self.selectMarker(this);
 		});
+
+		// Populate the places arrays
 		self.places.push(newPlace);
 		self.filteredMarkers.push(newPlace);
 	});
