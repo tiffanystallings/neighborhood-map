@@ -37,6 +37,7 @@ const Place = function(data) {
 	};
 };
 
+
 const ViewModel = function() {
 	const self = this;
 	this.places = [];
@@ -131,7 +132,7 @@ const ViewModel = function() {
 
 		self.places.forEach(function(place) {
 			place.marker.setMap(map);
-			self.filteredMarkers.push(place.marker);
+			self.filteredMarkers.push(place);
 			bounds.extend(place.marker.position);
 		});
 
