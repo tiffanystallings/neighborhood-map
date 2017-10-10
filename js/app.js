@@ -1,6 +1,6 @@
-var map;
-var fsId = 'K2WU2L1MMFXQIPLQRTC5KBCXYPTPZTEZCLIEZ55CZB1LQ0FN';
-var fsSecret = 'IF2N15UIYJ3XBMGRD3KC5RDHXF15IUJVJVSY52HYN0YJJMID';
+let map;
+const FS_ID = 'K2WU2L1MMFXQIPLQRTC5KBCXYPTPZTEZCLIEZ55CZB1LQ0FN';
+const FS_SECRET = 'IF2N15UIYJ3XBMGRD3KC5RDHXF15IUJVJVSY52HYN0YJJMID';
 
 
 function initMap() {
@@ -16,3 +16,9 @@ function initialize() {
 	initMap();
 	ko.applyBindings(new ViewModel());
 }
+
+window.setTimeout(function() {
+	if (!map) {
+		alert('There was an error loading Google Maps.');
+	}
+}, 10000);
