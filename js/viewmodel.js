@@ -27,11 +27,15 @@ const Place = function(data) {
 			self.favorite(false);
 			self.icon = icons[self.tags[0]];
 			self.marker.setIcon(self.icon);
+			data.favorite = false;
+			localStorage.locations = JSON.stringify(locations);
 			console.log(self.title + ' removed from favorites.');
 		} else {
 			self.favorite(true);
 			this.icon = icons.favorite;
 			self.marker.setIcon(self.icon);
+			data.favorite = true;
+			localStorage.locations = JSON.stringify(locations);
 			console.log(self.title + ' added to favorites.');
 		};
 	};
@@ -57,6 +61,10 @@ const ViewModel = function() {
 	];
 
 	this.largeInfowindow = new google.maps.InfoWindow();
+
+	if (localStorage.locations) {
+		locations = JSON.parse(localStorage.locations);
+	};
 
 	locations.forEach(function(place) {
 		let newPlace = new Place(place);
