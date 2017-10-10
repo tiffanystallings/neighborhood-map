@@ -25,9 +25,13 @@ const Place = function(data) {
 	this.toggleFavorite = function() {
 		if (self.favorite()) {
 			self.favorite(false);
+			self.icon = icons[self.tags[0]];
+			self.marker.setIcon(self.icon);
 			console.log(self.title + ' removed from favorites.');
 		} else {
 			self.favorite(true);
+			this.icon = icons.favorite;
+			self.marker.setIcon(self.icon);
 			console.log(self.title + ' added to favorites.');
 		};
 	};
@@ -42,6 +46,7 @@ const ViewModel = function() {
 		return self.locationsPane() ? 'extend' : '';
 	});
 	this.tags = [
+		'Favorites',
 		'Landmarks',
 		'Restaurants',
 		'Coffee',
@@ -70,22 +75,31 @@ const ViewModel = function() {
 	};
 
 	this.filterLocations = function(clicked) {
-		const clickedTag = clicked.toLowerCase();
+		let clickedTag = clicked.toLowerCase();
 		self.hideAllLocations();
 
-		self.places.forEach(function(place) {
-			let tagMatch = false;
-			place.tags.forEach(function(tag) {
-				if(tag == clickedTag) {
-					tagMatch = true;
+		if (clickedTag == 'favorites') {
+			self.places.forEach(function(place) {
+				if (place.favorite()) {
+					self.filteredMarkers.push(place);
+					place.marker.setMap(map);
+				}
+			})
+		} else {
+			self.places.forEach(function(place) {
+				let tagMatch = false;
+				place.tags.forEach(function(tag) {
+					if(tag == clickedTag) {
+						tagMatch = true;
+					}
+				});
+
+				if (tagMatch) {
+					self.filteredMarkers.push(place);
+					place.marker.setMap(map);
 				}
 			});
-
-			if (tagMatch) {
-				self.filteredMarkers.push(place);
-				place.marker.setMap(map);
-			}
-		});
+		};
 	};
 
 	this.selectMarker = function(clicked) {
