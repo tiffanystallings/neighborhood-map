@@ -27,6 +27,10 @@ h1 {
   text-shadow: 2px 2px 8px #000000;
 }
 
+h4 {
+  display: inline;
+}
+
 .toggle-markers {
   text-decoration: underline;
   text-align: center;
@@ -48,7 +52,7 @@ h1 {
 }
 
 /* From Bootstrap's Documentation.
-// Eliminates Gutters between layout items. 
+// Eliminates Gutters between layout items.
 .no-gutters {
   margin-right: 0;
   margin-left: 0;
@@ -76,7 +80,7 @@ h1 {
 .location {
   width: 100%;
   padding: 20px;
-  text-align: center;
+  text-align: left;
   font-size: 20px;
   cursor: pointer;
 }

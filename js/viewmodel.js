@@ -3,14 +3,17 @@ const Place = function(data) {
 	this.position = data.location;
 	this.title = data.title;
 	this.tags = data.tags;
+	this.favorite = ko.observable(data.favorite);
+	this.favoriteClass = ko.pureComputed(function() {
+		return self.favorite() ? 'glyphicon-star' : 'glyphicon-star-empty';
+	})
 
-	if (data.favorite) {
+	if (self.favorite()) {
 		this.icon = icons.favorite;
 	} else {
-		this.icon = icons[data.tags[0]];
+		this.icon = icons[self.tags[0]];
 	};
 
-	this.favorite = ko.observable(data.favorite);
 	this.marker = new google.maps.Marker({
 		position: self.position,
 		title: self.title,
@@ -18,6 +21,16 @@ const Place = function(data) {
 		map: map,
 		animation: google.maps.Animation.DROP
 	});
+
+	this.toggleFavorite = function() {
+		if (self.favorite()) {
+			self.favorite(false);
+			console.log(self.title + ' removed from favorites.');
+		} else {
+			self.favorite(true);
+			console.log(self.title + ' added to favorites.');
+		};
+	};
 };
 
 const ViewModel = function() {
@@ -26,7 +39,7 @@ const ViewModel = function() {
 	this.filteredMarkers = ko.observableArray([]);
 	this.locationsPane = ko.observable(false);
 	this.locationsPaneClass = ko.pureComputed(function() {
-		return self.locationsPane() ? "extend" : "";
+		return self.locationsPane() ? 'extend' : '';
 	});
 	this.tags = [
 		'Landmarks',
