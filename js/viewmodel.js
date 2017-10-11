@@ -107,6 +107,9 @@ const ViewModel = function() {
 		self.filteredMarkers.push(newPlace);
 	});
 
+	/**
+	* Toggles the locationsPane boolean on click.
+	*/
 	this.toggleLocationsPane = function() {
 		if (self.locationsPane()) {
 			self.locationsPane(false);
@@ -115,10 +118,16 @@ const ViewModel = function() {
 		}
 	};
 
+	/**
+	* Takes a clicked dropdown element as input and compares its text against
+	* the tags in each place, or looks for a favorited place.
+	* Adjusts the filteredMarkers array and the markers shown on the map.
+	*/
 	this.filterLocations = function(clicked) {
 		let clickedTag = clicked.toLowerCase();
 		self.hideAllLocations();
 
+		// Check if user selected 'Favorites'
 		if (clickedTag == 'favorites') {
 			self.places.forEach(function(place) {
 				if (place.favorite()) {
@@ -126,6 +135,7 @@ const ViewModel = function() {
 					place.marker.setMap(map);
 				}
 			})
+		// Otherwise, check the selected option against places tags.
 		} else {
 			self.places.forEach(function(place) {
 				let tagMatch = false;
@@ -134,7 +144,8 @@ const ViewModel = function() {
 						tagMatch = true;
 					}
 				});
-
+				// If a match was found, add it to the map and
+				// list of matching markers.
 				if (tagMatch) {
 					self.filteredMarkers.push(place);
 					place.marker.setMap(map);
@@ -143,21 +154,34 @@ const ViewModel = function() {
 		};
 	};
 
+	/**
+	* Takes a clicked place as input, selects its infowindow on the
+	* map, animates the marker, and centers the map on it.
+	*/
 	this.selectMarker = function(clicked) {
+		// Close the locations pane
 		self.locationsPane(false);
+
+		// Sets clicked to equal its marker.
 		if (clicked.marker) {
 			clicked = clicked.marker;
 		}
 
+		// Turn animation off for all markers.
 		self.places.forEach(function(place) {
 			place.marker.setAnimation(null);
 		});
 
+		// Center the map, show an infowindow, and animate the marker.
 		map.setCenter(clicked.position);
 		self.populateInfoWindow(clicked, self.largeInfowindow);
 		clicked.setAnimation(google.maps.Animation.BOUNCE);
 	};
 
+	/**
+	* Runs on user click of the show/hide location link and runs functions to
+	* either show or hide locations.
+	*/
 	this.toggleLocations = function() {
 		if (self.filteredMarkers().length == self.places.length) {
 			self.hideAllLocations();
@@ -166,6 +190,10 @@ const ViewModel = function() {
 		}
 	};
 
+	/**
+	* Clears the list of filtered markers repopulates the map and list
+	* of filtered markers with all places.
+	*/
 	this.showAllLocations = function() {
 		const bounds = new google.maps.LatLngBounds();
 		self.filteredMarkers.removeAll();
@@ -179,6 +207,9 @@ const ViewModel = function() {
 		map.fitBounds(bounds);
 	};
 
+	/**
+	* Clears the list of filtered markers and removes all markers from the map.
+	*/
 	this.hideAllLocations = function() {
 		self.filteredMarkers.removeAll();
 		self.places.forEach(function(place) {
@@ -186,11 +217,18 @@ const ViewModel = function() {
 		});
 	};
 
+	/**
+	* Takes a marker and its infowindow as input.
+	* Sends the coordinates of the marker to the Foursquare API and utilizes
+	* the information received to populate the infowindow.
+	*/
 	this.getLocationInfo = function(marker, infowindow) {
-		const pointStr = marker.position.toString().slice(1,-1).replace(' ', '');
 		const baseUrl = 'https://api.foursquare.com/v2/venues/search';
 
+		// Convert the coordinates to be easily processed in the GET request
+		const pointStr = marker.position.toString().slice(1,-1).replace(' ', '');
 
+		// Send the request to Foursquare
 		$.ajax({
 			url: baseUrl,
 			data: {
@@ -202,18 +240,30 @@ const ViewModel = function() {
 			},
 			method: 'GET',
 			success: function(response) {
+				/**
+				* Takes the response from Foursquare as a parameter.
+				* Parses the response and builds a string to inject into the
+				* infowindow.
+				*/
 				const venue = response.response.venues[0];
+
+				// Create a result object for easy referencel
 				const result = {
 					name: venue.name,
 					phone: venue.contact.formattedPhone,
 					address: venue.location.formattedAddress
 				};
+
+				// Start a content string.
 				let contentString ='<h4>' + result.name + '</h4>';
 
+				// Check that business has a phone number on Foursquare
+				// If one exists, add it to the content string.
 				if (result.phone) {
 					contentString += '<p>Phone: ' + result.phone + '</p>';
 				}
 
+				// Check for a formatted address and add it to the content string
 				if (result.address) {
 					contentString += '<p>Address: </p>';
 					result.address.forEach(function(line) {
@@ -221,27 +271,39 @@ const ViewModel = function() {
 					});
 				}
 
+				// Cite Foursquare as the information source.
 				contentString += '<p><i>Powered by <a href="http://foursquare.com"' +
 					'target="_blank">Foursquare</a></i></p>';
 
+				// Commit the content to the infowindow.
 				infowindow.setContent(contentString);
 			}
 		}).fail(function() {
+			// On failure to get a response, alert the user.
 			alert('Unable to contact Foursquare');
 		});
 	};
 
+	/**
+	* Takes a marker and its infowindow as parameters.
+	* Gets information on the location of the marker from Foursquare.
+	* Opens the infowindow at the marker.
+	*/
 	this.populateInfoWindow = function(marker, infowindow) {
+		// Clears any existing infowindow information.
 		if (infowindow.marker != marker) {
 			infowindow.setContent('');
 			infowindow.marker = marker;
 		}
 
+		// Checks if infowindow has been closed and ends the markers
+		// animation if it has.
 		infowindow.addListener('closeclick', function() {
 			marker.setAnimation(null);
 			infowindow.marker = null;
 		});
 
+		// Get location info andopen the infowindow.
 		self.getLocationInfo(marker, infowindow);
 		infowindow.open(map, marker);
 	};
