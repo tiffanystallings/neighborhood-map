@@ -27,8 +27,6 @@ function initialize() {
 }
 
 // Wait 10 seconds and check if map initialized. Alert user if not.
-window.setTimeout(function() {
-	if (!map) {
-		alert('There was an error loading Google Maps.');
-	}
-}, 10000);
+function googleError() {
+	alert('There was an error loading Google Maps.');
+}
