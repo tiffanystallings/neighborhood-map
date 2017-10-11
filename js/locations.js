@@ -1,3 +1,7 @@
+/**
+* This file holds the locations and icons objects.
+*/
+
 let locations = [
 	{
 		title: 'The Big Chicken',

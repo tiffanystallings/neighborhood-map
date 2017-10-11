@@ -12,7 +12,7 @@ const Place = function(data) {
 	// Changes the glyphicon graphic based on the favorite boolean.
 	this.favoriteClass = ko.pureComputed(function() {
 		return self.favorite() ? 'glyphicon-star' : 'glyphicon-star-empty';
-	})
+	});
 
 	// Check if place is already marked as favorite, and assign the
 	// map icon accordingly.
@@ -20,7 +20,7 @@ const Place = function(data) {
 		this.icon = icons.favorite;
 	} else {
 		this.icon = icons[self.tags[0]];
-	};
+	}
 
 	// Create the map marker.
 	this.marker = new google.maps.Marker({
@@ -52,7 +52,7 @@ const Place = function(data) {
 			data.favorite = true;
 			localStorage.locations = JSON.stringify(locations);
 			console.log(self.title + ' added to favorites.');
-		};
+		}
 	};
 };
 
@@ -91,7 +91,7 @@ const ViewModel = function() {
 	// use that one instead.
 	if (localStorage.locations) {
 		locations = JSON.parse(localStorage.locations);
-	};
+	}
 
 	// Create instances of Place by iterating over each location object.
 	locations.forEach(function(place) {
@@ -134,7 +134,7 @@ const ViewModel = function() {
 					self.filteredMarkers.push(place);
 					place.marker.setMap(map);
 				}
-			})
+			});
 		// Otherwise, check the selected option against places tags.
 		} else {
 			self.places.forEach(function(place) {
@@ -151,7 +151,7 @@ const ViewModel = function() {
 					place.marker.setMap(map);
 				}
 			});
-		};
+		}
 	};
 
 	/**

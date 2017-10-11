@@ -1,5 +1,8 @@
-// Bates Green by Ozgur Coruhlu on Snazzy Maps
-// https://snazzymaps.com/style/23/bates-green
+/**
+* Style object for the map.
+* Bates Green by Ozgur Coruhlu on Snazzy Maps
+* https://snazzymaps.com/style/23/bates-green
+*/
 
 var style = [
     {
