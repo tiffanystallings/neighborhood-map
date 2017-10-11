@@ -1,5 +1,8 @@
-// Store the map globally for access by other functions.
+// Store the map, infowindow, and bounds globally for access
+// by other functions.
 let map;
+let largeInfoWindow;
+let bounds;
 
 // Store the Foursquare client information.
 const FS_ID = 'K2WU2L1MMFXQIPLQRTC5KBCXYPTPZTEZCLIEZ55CZB1LQ0FN';
@@ -14,6 +17,18 @@ function initMap() {
 		zoom: 13,
 		styles: style,
 		streetViewControl: false
+	});
+
+	// Create an empty bounds array.
+	bounds = new google.maps.LatLngBounds();
+
+	// Establish a blank infowindow to alter later.
+	largeInfoWindow = new google.maps.InfoWindow();
+
+	// As suggested by my first Udacity reviewer -- fit bounds on window
+	// resize.
+	google.maps.event.addDomListener(window, 'resize', function() {
+		map.fitBounds(bounds);
 	});
 }
 

@@ -84,9 +84,6 @@ const ViewModel = function() {
 		'Historic'
 	];
 
-	// Establish a blank infowindow to alter later.
-	this.largeInfowindow = new google.maps.InfoWindow();
-
 	// If there is already an instance of locations in localStorage,
 	// use that one instead.
 	if (localStorage.locations) {
@@ -111,11 +108,7 @@ const ViewModel = function() {
 	* Toggles the locationsPane boolean on click.
 	*/
 	this.toggleLocationsPane = function() {
-		if (self.locationsPane()) {
-			self.locationsPane(false);
-		} else {
-			self.locationsPane(true);
-		}
+		self.locationsPane(!self.locationsPane());
 	};
 
 	/**
@@ -174,7 +167,7 @@ const ViewModel = function() {
 
 		// Center the map, show an infowindow, and animate the marker.
 		map.setCenter(clicked.position);
-		self.populateInfoWindow(clicked, self.largeInfowindow);
+		self.populateInfoWindow(clicked, largeInfoWindow);
 		clicked.setAnimation(google.maps.Animation.BOUNCE);
 	};
 
@@ -195,7 +188,6 @@ const ViewModel = function() {
 	* of filtered markers with all places.
 	*/
 	this.showAllLocations = function() {
-		const bounds = new google.maps.LatLngBounds();
 		self.filteredMarkers.removeAll();
 
 		self.places.forEach(function(place) {
@@ -290,17 +282,10 @@ const ViewModel = function() {
 	* Opens the infowindow at the marker.
 	*/
 	this.populateInfoWindow = function(marker, infowindow) {
-		// Clears any existing infowindow information.
-		if (infowindow.marker != marker) {
-			infowindow.setContent('');
-			infowindow.marker = marker;
-		}
-
 		// Checks if infowindow has been closed and ends the markers
 		// animation if it has.
 		infowindow.addListener('closeclick', function() {
 			marker.setAnimation(null);
-			infowindow.marker = null;
 		});
 
 		// Get location info andopen the infowindow.
