@@ -2,11 +2,11 @@ Getting started:
 [X] Complete a mockup
 [X] Set up project folder
 [X] Hook up Knockout and organize js into MVVM files
-[ ]	Acquire API keys and understand documentation
+[X]	Acquire API keys and understand documentation
 
 Interface Requirements:
-[ ] All application components render on-screen in a responsive manner
-[ ] All application components are usable across modern desktop, tablet, and phone browsers.
+[X] All application components render on-screen in a responsive manner
+[X] All application components are usable across modern desktop, tablet, and phone browsers.
 
 App Functionality:
 [X] Includes a text input field or dropdown menu that filters the map markers and list items to locations matching the text input or selection. Filter function runs error-free.
@@ -23,10 +23,10 @@ App Functionality:
 
 [X] Markers should animate when clicked (e.g. bouncing, color change.)
 
-[ ] Any additional custom functionality provided in the app functions error-free.
+[X] Any additional custom functionality provided in the app functions error-free.
 
 App Architecture:
-[ ] Code is properly separated based upon Knockout best practices (follow an MVVM pattern, avoid updating the DOM manually with jQuery or JS, use observables rather than forcing refreshes manually, etc). Knockout should not be used to handle the Google Map API.
+[X] Code is properly separated based upon Knockout best practices (follow an MVVM pattern, avoid updating the DOM manually with jQuery or JS, use observables rather than forcing refreshes manually, etc). Knockout should not be used to handle the Google Map API.
 
 [X] There are at least 5 locations in the model. These may be hard-coded or retrieved from a data API.
 
@@ -40,16 +40,16 @@ Asynchronous Data Usage:
 Location Details Functionality:
 [X] Functionality providing additional data about a location is provided and sourced from a 3rd party API. Information can be provided either in the marker’s infoWindow, or in an HTML element in the DOM (a sidebar, the list view, etc.)
 
-[ ] Provide attribution for the source of additional data. For example, if using Foursquare, indicate somewhere in your UI and in your README that you are using Foursquare data.
+[X] Provide attribution for the source of additional data. For example, if using Foursquare, indicate somewhere in your UI and in your README that you are using Foursquare data.
 
 [X] Functionality is presented in a usable and responsive manner
 
 Documentation:
-[ ] A README file is included detailing all steps required to successfully run the application.
+[X] A README file is included detailing all steps required to successfully run the application.
 
-[ ] Comments are present and effectively explain longer code procedures.
+[X] Comments are present and effectively explain longer code procedures.
 
-[ ] Code is formatted with consistent, logical, and easy-to-read formatting as described in the Udacity JavaScript Style Guide.
+[X] Code is formatted with consistent, logical, and easy-to-read formatting as described in the Udacity JavaScript Style Guide.
 
 [ ] If build tools (such as Gulp or Grunt) are used, both source and production code are submitted in the same repository in separate directories. These directories are usually named src and dist respectively.
 
