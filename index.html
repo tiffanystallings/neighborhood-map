@@ -9,65 +9,69 @@
   <link rel="stylesheet" type="text/css" href="css/styles.css">
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 
-  <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-  <script
-  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
-  integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
-  crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script
-  src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+
 </head>
 
 <body>
 	<div class="container-fluid full-height">
-
-		<div class="row header">
-			<div class="col-sm-12">
-				<h1>Mapping Marietta</h1>
+		<header>
+			<div class="row header">
+				<div class="col-sm-12">
+					<h1>Mapping Marietta</h1>
+				</div>
 			</div>
-		</div>
-
+		</header>
 
 		<div class="row content">
-			<div class="col-sm full-height pull-left" id="aside" data-bind="css: locationsPaneClass">
-				<div class="dropdown">
-					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Filter Locations
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu" data-bind="foreach: tags" aria-labelledby="dropdownMenu">
-						<li>
-							<a class="dropdown-item" href="#" data-bind="text: $data, click: $parent.filterLocations"></a>
-						</li>
-					</ul>
-				</div>
-				<p class="toggle-markers" data-bind="click: toggleLocations">Show/Hide All Markers</p>
-				<div data-bind="foreach: filteredMarkers">
-					<div class="location">
-						<span class="glyphicon favorite" data-bind="css: favoriteClass, click: toggleFavorite"></span>
-						<h4 data-bind="text: title, click: $parent.selectMarker">
-						</h4>
+			<aside>
+				<div class="col-sm full-height pull-left" id="aside" data-bind="css: locationsPaneClass">
+					<div class="dropdown">
+						<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Filter Locations
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu" data-bind="foreach: tags" aria-labelledby="dropdownMenu">
+							<li>
+								<a class="dropdown-item" href="#" data-bind="text: $data, click: $parent.filterLocations"></a>
+							</li>
+						</ul>
+					</div>
+					<p class="toggle-markers" data-bind="click: toggleLocations">Show/Hide All Markers</p>
+					<div data-bind="foreach: filteredMarkers">
+						<div class="location">
+							<span class="glyphicon favorite" data-bind="css: favoriteClass, click: toggleFavorite"></span>
+							<h4 data-bind="text: title, click: $parent.selectMarker">
+							</h4>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-sm visible-xs-* visible-sm-* full-height pull-left" id="menu-toggle" data-bind="click: toggleLocationsPane">
-				<p class="icon">☰</p>
-			</div>
-			<div class="col-sm full-height pull-right" id="map"></div>
+			</aside>
+			<main>
+				<div class="col-sm visible-xs-* visible-sm-* full-height pull-left" id="menu-toggle" data-bind="click: toggleLocationsPane">
+					<p class="icon">☰</p>
+				</div>
+				<div class="col-sm full-height pull-right" id="map"></div>
+			</main>
 		</div>
-
 	</div>
 
-
-	<script async defer src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyCjjGxJHkBxrgc6162Mc9A7c6NbLm_rIdc&v=3&callback=initialize"></script>
+	<script
+  	src="https://code.jquery.com/jquery-3.2.1.min.js"
+  	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  	crossorigin="anonymous"></script>
+  	<script
+  	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+  	integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+  	crossorigin="anonymous"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  	<script
+  	src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
 
   	<script src="js/mapstyle.js"></script>
 	<script src="js/locations.js"></script>
 	<script src="js/viewmodel.js"></script>
 	<script src="js/app.js"></script>
+
+	<script async defer src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyCjjGxJHkBxrgc6162Mc9A7c6NbLm_rIdc&v=3&callback=initialize"></script>
 </body>
 </html>
