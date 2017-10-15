@@ -5,6 +5,8 @@ Users can add a location to their favorites (which will be saved via localStorag
 
 I created my own set of custom icons in order to distinguish the different types of locations at first glance.
 
+Check out the live demo [here](http://tiffanystallings.github.io/neighborhood-map)!
+
 ## Requirements
 Mapping Marietta will work on most modern browsers, however it is NOT supported by Opera Mini.
 
